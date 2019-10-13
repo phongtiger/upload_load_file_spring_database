@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>image</title>
+</head>
+<body>
+<th:block th:if="${message}">
+    <h3 th:text="${message}"></h3>
+</th:block>
+<a th:href="@{/create-upload}">Create img pro</a>
+<div th:each="c : ${products}">
+    <img width="300px" height="200px" th:src="@{'/image/' + ${c.getImage()}}">
+    <a th:href="@{/edit-product/__${c.id}__ }">Edit</a>
+</div>
+<!--<table>-->
+<!--    <th:block th:each="c : ${products}">-->
+<!--    <tr>-->
+<!--        <td><img width="300px" height="200px" th:src="@{'/image/' + ${c.getImage()}}"></td>-->
+<!--        <td th:text="${c.getTensanpham()}"></td>-->
+<!--        <td th:text="${c.getGiasanpham()}"></td>-->
+<!--    </tr>-->
+<!--    </th:block>-->
+<!--</table>-->
+</body>
+</html>

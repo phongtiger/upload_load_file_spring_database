@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/edit-img}" th:object="${product}" method="post" enctype="multipart/form-data">
+    <table>
+        <input type="hidden" th:field="*{id}">
+        <tr>
+            <th>Ảnh Sản Phẩm</th>
+            <img width="300px" height="200px" th:src="@{'/image/' + ${product.getImage()}}" >
+            <td><input type="file" th:field="*{image}"></td>
+            <td><input type="submit" value="save"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
