@@ -8,13 +8,36 @@ public class Products {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String image;
+    private String name;
+    private String maHang;
+    private int price;
+    private String detail;
+    private int count =1;
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public Products() {
     }
-
-    public Products(String image) {
+    public Products(String image, String name, String maHang, int price, String detail) {
         this.image = image;
+        this.name = name;
+        this.maHang = maHang;
+        this.price = price;
+        this.detail = detail;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getImage() {
@@ -25,11 +48,35 @@ public class Products {
         this.image = image;
     }
 
-    public Long getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMaHang() {
+        return maHang;
+    }
+
+    public void setMaHang(String maHang) {
+        this.maHang = maHang;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }

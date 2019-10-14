@@ -11,12 +11,12 @@ public class ProductsServiceImpl implements ProductsService {
     private ProductsRepository productsRepository;
 
     @Override
-    public void addImage(Products products) {
+    public void addProduct(Products products) {
         productsRepository.save(products);
     }
 
     @Override
-    public void deleteImage(Long id) {
+    public void deleteProduct(Long id) {
         productsRepository.delete(id);
     }
 
@@ -24,8 +24,6 @@ public class ProductsServiceImpl implements ProductsService {
     public Products findById(Long id) {
         return productsRepository.findOne(id);
     }
-
-
 
     @Override
     public Iterable<Products> findAll() {

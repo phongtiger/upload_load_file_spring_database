@@ -4,9 +4,9 @@ import com.codegym.model.Products;
 
 public interface ProductsService {
 
-    void addImage(Products products);
+    void addProduct(Products products);
 
-    void deleteImage(Long id);
+    void deleteProduct(Long id);
 
     Products findById(Long id);
 

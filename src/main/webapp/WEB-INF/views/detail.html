@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<th:block th:if="${message}">
+    <h3 th:text="${message}"></h3>
+</th:block>
+<body>
+<form th:action="@{/add-product-to-cart}" th:object="${product}" method="post">
+    <table>
+        <input type="hidden" th:field="*{id}">
+        <tr>
+            <td><img width="300px" height="320px" th:src="@{'/image/' + ${product.getImage()}}"></td>
+        </tr>
+        <tr>
+            <td>Ma hang: </td>
+            <td th:text="${product.maHang}"></td>
+        </tr>
+        <tr>
+            <td>Ten:</td>
+            <td th:text="${product.name}"></td>
+        </tr>
+        <tr>
+            <td>Gia:</td>
+            <td th:text="${product.price}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Mua ngay"></td>
+        </tr>
+        <tr>
+            <td>Chi tiet: </td>
+            <td th:text="${product.detail}"></td>
+
+        </tr>
+    </table>
+</form>
+<a th:href="@{/home}">Ve trang chu</a>
+</body>
+</html>

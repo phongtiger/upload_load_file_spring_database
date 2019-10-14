@@ -11,7 +11,7 @@
         <input type="hidden" th:field="*{id}">
         <tr>
             <th>Ảnh Sản Phẩm</th>
-            <img width="300px" height="200px" th:src="@{'/image/' + ${product.getImage()}}" >
+            <img width="300px" height="300px" th:src="@{'/image/' + ${product.getImage()}}" >
             <td><input type="file" th:field="*{image}"></td>
             <td><input type="submit" value="save"></td>
         </tr>

@@ -1,6 +1,7 @@
 package com.codegym;
 
 import com.codegym.service.ProductsService;
+
 import com.codegym.service.impl.ProductsServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +76,8 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public ProductsService productsService(){
         return new ProductsServiceImpl();
     }
+
+
 
     //Thymeleaf Configuration
     @Bean
