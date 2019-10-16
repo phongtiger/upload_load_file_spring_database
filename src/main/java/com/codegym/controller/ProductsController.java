@@ -15,8 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,20 +36,25 @@ public class ProductsController {
     }
     @GetMapping("/views-cart")
     public ModelAndView viewCart(@ModelAttribute ("cart") Cart cart) {
-        ArrayList<Products> productsCart = (ArrayList<Products>) cart.findAllInCart();
+        List<Products> productsCart = cart.findAllInCart();
         ModelAndView modelAndView = new ModelAndView("/cart");
         modelAndView.addObject("carts",productsCart);
-//        System.out.println(productsCart.get(0).);
         return modelAndView;
     }
     @PostMapping("/add-product-to-cart")
     public ModelAndView addProductToCartCart(@RequestParam long id,@ModelAttribute ("cart") Cart cart) {
-        System.out.println(id);
-        cart.addProductIntoCart(productsService.findById(id));
+        Products products = productsService.findById(id);
+        if (cart.findAllInCart().contains(products)) {
+            ModelAndView modelAndView = new ModelAndView("/detail");
+            modelAndView.addObject("product", productsService.findById(id));
+            modelAndView.addObject("message","San pham da ton tai");
+            return modelAndView;
+        }else {
+        cart.addProductIntoCart(products);
         ModelAndView modelAndView = new ModelAndView("/detail");
         modelAndView.addObject("product", productsService.findById(id));
         modelAndView.addObject("message","Da them thanh cong vao gio hang");
-        return modelAndView;
+        return modelAndView;}
     }
     @GetMapping("/create-upload")
     public ModelAndView showFormUpLoadImg() {

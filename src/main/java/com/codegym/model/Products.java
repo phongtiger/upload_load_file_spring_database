@@ -1,9 +1,11 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.Objects;
+
 @Entity
 @Table(name = "image")
-public class Products {
+public class Products  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -78,5 +80,18 @@ public class Products {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Products products = (Products) o;
+        return maHang.equals(products.maHang);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(maHang);
     }
 }
